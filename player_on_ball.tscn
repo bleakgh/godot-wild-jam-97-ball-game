@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bgtwtnmc0wwr8"]
+
+[ext_resource type="Script" uid="uid://s7jwevdrlod3" path="res://player_controller.gd" id="1_a46p6"]
+[ext_resource type="Shader" uid="uid://df3vvj58mcr1d" path="res://checker.gdshader" id="2_4ulgh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a46p6"]
+render_priority = 0
+shader = ExtResource("2_4ulgh")
+
+[sub_resource type="SphereMesh" id="SphereMesh_ostoq"]
+material = SubResource("ShaderMaterial_a46p6")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ostoq"]
+
+[node name="Player" type="Node3D" unique_id=1544721970]
+script = ExtResource("1_a46p6")
+
+[node name="ball" type="MeshInstance3D" parent="." unique_id=795608475]
+unique_name_in_owner = true
+mesh = SubResource("SphereMesh_ostoq")
+
+[node name="area" type="Area3D" parent="." unique_id=297169158]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="area" unique_id=1121024620]
+shape = SubResource("SphereShape3D_ostoq")

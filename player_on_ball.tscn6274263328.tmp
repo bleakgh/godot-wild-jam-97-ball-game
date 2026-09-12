@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bgtwtnmc0wwr8"]
+
+[ext_resource type="Script" uid="uid://s7jwevdrlod3" path="res://player_controller.gd" id="1_a46p6"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ostoq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ostoq"]
+
+[node name="Player" type="Node3D" unique_id=1544721970]
+script = ExtResource("1_a46p6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=795608475]
+mesh = SubResource("SphereMesh_ostoq")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1674124724]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1121024620]
+shape = SubResource("SphereShape3D_ostoq")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1427399228]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.397171, 0)

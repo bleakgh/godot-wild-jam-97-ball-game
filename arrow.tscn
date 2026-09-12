@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://e0r0gtgc7ysn"]
+
+[ext_resource type="PackedScene" uid="uid://br63kshomvrd5" path="res://arrow.glb" id="1_l5ahi"]
+
+[node name="Arrow" type="Node3D" unique_id=1024588843]
+
+[node name="arrow2" parent="." unique_id=1138258064 instance=ExtResource("1_l5ahi")]
