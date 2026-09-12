@@ -3,11 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bgtwtnmc0wwr8" path="res://player_on_ball.tscn" id="1_u52ul"]
 [ext_resource type="Shader" uid="uid://df3vvj58mcr1d" path="res://checker.gdshader" id="2_vonw3"]
 [ext_resource type="Script" uid="uid://hgmf85ks30y8" path="res://arrow.gd" id="3_0b4ue"]
-[ext_resource type="ArrayMesh" uid="uid://b1gp23j4jt1bj" path="res://arrow.obj" id="3_oi3di"]
 [ext_resource type="Script" uid="uid://n8luds8jhrsn" path="res://camera_3d.gd" id="5_f2txt"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oi3di"]
-albedo_color = Color(0.46584213, 0.07373098, 0.13357314, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u52ul"]
 render_priority = 0
@@ -27,15 +23,31 @@ size = Vector3(51, 15, 3)
 
 [node name="Level" type="Node3D" unique_id=1410324051]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1532418508]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=759003894]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1083.0
+offset_top = 273.0
+offset_right = 1083.0
+offset_bottom = 273.0
+
+[node name="arrow" type="Node2D" parent="CanvasLayer/Control" unique_id=304829606]
+script = ExtResource("3_0b4ue")
+
+[node name="recenter" type="Node2D" parent="CanvasLayer/Control/arrow" unique_id=210227876]
+position = Vector2(26, -30)
+scale = Vector2(0.25, 0.25)
+
+[node name="arrow_shape" type="Polygon2D" parent="CanvasLayer/Control/arrow/recenter" unique_id=1919232061]
+color = Color(0.43276286, 0.038430203, 0.13915145, 1)
+polygon = PackedVector2Array(-167.19992, 309.2, -39.99994, 307.59998, -42.399933, 79.600006, 72.80008, 80.400024, -116.79993, -81.99997, -269.5999, 74.00003, -172.79993, 77.20001)
+uv = PackedVector2Array(-167.19992, 309.2, -39.99994, 307.59998, -42.399933, 79.600006, 72.80008, 80.400024, -127.99994, -99.59997, -283.99994, 74.00003, -184.79993, 77.20001)
+
 [node name="Player" parent="." unique_id=1544721970 instance=ExtResource("1_u52ul")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5280434, 0)
-
-[node name="arrow" type="MeshInstance3D" parent="." unique_id=1487527791]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 0)
-mesh = ExtResource("3_oi3di")
-surface_material_override/0 = SubResource("StandardMaterial3D_oi3di")
-script = ExtResource("3_0b4ue")
 
 [node name="floor" type="MeshInstance3D" parent="." unique_id=852530129]
 mesh = SubResource("PlaneMesh_ostoq")
